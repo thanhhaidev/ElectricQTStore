@@ -35,6 +35,9 @@
             <th>
                 Loại SP
             </th>
+            <th>
+                Hình SP
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -49,19 +52,22 @@
                     @Html.DisplayFor(modelItem => item.TenSP)
                 </td>
                 <td>
-                    @String.Format("{0:C0} VND", item.GiaBan).Remove(0, 1)
+                    @String.Format("{0:0,0} VND", item.GiaBan)
                 </td>
                 <td>
-                    @String.Format("{0:C0} VND", item.GiaGoc).Remove(0, 1)
+                    @String.Format("{0:0,0} VND", item.GiaGoc)
                 </td>
                 <td>
-                    @String.Format("{0:C0} VND", item.GiaGop).Remove(0, 1)
+                    @String.Format("{0:0,0} VND", item.GiaGop)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.SoLuongTon)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.LoaiSanPham.TenLoai)
+                </td>
+                <td>
+                    <img src="@Url.Action("Details", new { id = item.id})" width="150" height="150" />
                 </td>
                 <td>
                     @Html.ActionLink(" ", "Edit", new { id = item.id }, new {@class = "glyphicon glyphicon-edit" }) |
